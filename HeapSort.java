@@ -5,7 +5,7 @@ public class HeapSort {
    /** Heap sort method */
    public static <E extends Comparable<E>> void heapSort(E[] list) {
       // Create a Heap of integers
-      Heap<E> heap = new Heap<E>();
+      Heap<E> heap = new Heap<>();
    
       // Add elements to the heap
       for (int i = 0; i < list.length; i++)

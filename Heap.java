@@ -71,10 +71,10 @@ public class Heap<E extends Comparable<E>> {
 
     return removedObject;
   }
-  public E Peek() //added method
+  public E Peek(int index) //added method
   {
     if (list.size() == 0) return null;//empty condition
-    return list.get(0);
+    return list.get(index);
   }
   /** Get the number of nodes in the tree */
   public int getSize() {
