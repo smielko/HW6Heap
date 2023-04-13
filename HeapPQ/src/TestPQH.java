@@ -55,13 +55,16 @@ public class TestPQH {
             case "0":   System.out.println("HeapType is already specified");
                 break;
             case "1": if(heaptype == 1) addInteger(myHeap);
-                      else addString(myHeap);
+            else addString(myHeap);
                 break;
             case "2":
+                System.out.println("Removed: " + myHeap.dequeue());
                 break;
             case "3":
+                myHeap.is_full();
                 break;
-            case "4": if (myHeap.HeapSize() == 0) System.out.println("Heap is empty");
+            case "4": if (myHeap.is_empty()) System.out.println("Heap is Empty");
+            else System.out.println("Heap is not empty");
                 break;
             case "5": System.out.println("Heap size is " + myHeap.HeapSize());
                 break;
@@ -90,4 +93,3 @@ public class TestPQH {
         myHeap.enqueue(input);
     }
 }
-
