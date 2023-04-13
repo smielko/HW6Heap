@@ -1,9 +1,14 @@
 // Generic code for class priority_queue_heap for Assignment 5 
+// Name: Sebastian Mielko
+// Class:CS 3305/Section#03
+// Term:Spring 2023
+// Instructor:Prof. Majeed
+// Assignment:6
 
 
 public class PQ_heap<E extends Comparable<E>> //Used generics so it can handle both strings and ints
 {
-    private Heap<E> PQHeap = new Heap<>(); //private heap objext
+    private Heap<E> PQHeap = new Heap<>(); //private heap object
     // Constructor method
     PQ_heap() {};
 
@@ -14,21 +19,12 @@ public class PQ_heap<E extends Comparable<E>> //Used generics so it can handle b
     }
 
     // Return true if priority queue is full; otherwise return false
-
-    public boolean is_full() //#TODO:
+    public boolean is_full()
     {
-        if (PQHeap.Peek(0) == null) //root is empty
+        int height = (int) (Math.log(PQHeap.getSize()/ Math.log(2))); //calculating log base 2
+            if (PQHeap.getSize() == Math.pow(2,height+1)-1) //equation to check if the heap is full
             return true;
-        for (int i = 0; i < PQHeap.getSize(); i++)
-        {
-            System.out.print("Index "+ i +": " + PQHeap.Peek(i) + " ");
-            if (i*2+1 < PQHeap.getSize())
-                System.out.print(PQHeap.Peek(i*2+1) + " ");
-            if (i*2+2 < PQHeap.getSize())
-                System.out.print(PQHeap.Peek(i*2+2) + " ");
-            System.out.println();
-        }
-        return false;//all conditions failed, the BT is not full
+        return false; //baseline condition
     }
 
     // Return (don't remove) the front element from the priority queue*/
@@ -65,17 +61,17 @@ public class PQ_heap<E extends Comparable<E>> //Used generics so it can handle b
     {
         for (int i = 0; i < PQHeap.getSize(); i++)
         {
-            System.out.print("Index "+ i +": " + PQHeap.Peek(i) + " ");
-            if (i*2+1 < PQHeap.getSize())
-                System.out.print(PQHeap.Peek(i*2+1) + " ");
-            if (i*2+2 < PQHeap.getSize())
-                System.out.print(PQHeap.Peek(i*2+2) + " ");
-            System.out.println();
+            System.out.print("Index "+ i +": " + PQHeap.Peek(i) + " "); //index i's value
+            if (i*2+1 < PQHeap.getSize()) //left child exists
+                System.out.print(PQHeap.Peek(i*2+1) + " ");//left child's value
+            if (i*2+2 < PQHeap.getSize())//right child exists
+                System.out.print(PQHeap.Peek(i*2+2) + " ");//right child's value
+            System.out.println(); //line break
         }
     }
     public int HeapSize()
     {
-        return PQHeap.getSize();
+        return PQHeap.getSize(); //returns size
     }
 
 };

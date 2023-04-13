@@ -1,5 +1,11 @@
 // Class Heap.java 
 // Textbook - Listing 23.9, Page 878
+// Name: Sebastian Mielko
+// Class:CS 3305/Section#03
+// Term:Spring 2023
+// Instructor:Prof. Majeed
+// Assignment:6
+
 public class Heap<E extends Comparable<E>> {
   private java.util.ArrayList<E> list = new java.util.ArrayList<E>();
 

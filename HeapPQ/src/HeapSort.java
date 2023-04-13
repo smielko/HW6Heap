@@ -1,5 +1,10 @@
 // Class HeapSort.java 
 // Textbook - Listing 23.10, Page 879
+// Name: Sebastian Mielko
+// Class:CS 3305/Section#03
+// Term:Spring 2023
+// Instructor:Prof. Majeed
+// Assignment:6
 
 public class HeapSort {
    /** Heap sort method */

@@ -1,3 +1,11 @@
+// Name: Sebastian Mielko
+// Class:CS 3305/Section#03
+// Term:Spring 2023
+// Instructor:Prof. Majeed
+// Assignment:6
+
+
+
 import java.util.Scanner;
 public class TestPQH {
 
@@ -14,7 +22,7 @@ public class TestPQH {
             isFinished = MenuSelection(heaptype,myHeap);
         }
     }
-    public static void DisplayMenu()
+    public static void DisplayMenu() //menu display method
     {
         System.out.println("\n----------------MAIN MENU---------------\n" +
                 "0. Enter Queue Type (integer or string)\n" +
@@ -28,7 +36,7 @@ public class TestPQH {
                 "8. Exit program\n" +
                 "Enter option number:");
     }
-    public static int HeapTypeSelection()
+    public static int HeapTypeSelection() //used to force user to select heap type
     {
         DisplayMenu();
         Scanner myScanner = new Scanner(System.in);
@@ -61,7 +69,8 @@ public class TestPQH {
                 System.out.println("Removed: " + myHeap.dequeue());
                 break;
             case "3":
-                myHeap.is_full();
+               if (myHeap.is_full()) System.out.println("Tree is full");
+               else System.out.println("Tree is not full");
                 break;
             case "4": if (myHeap.is_empty()) System.out.println("Heap is Empty");
             else System.out.println("Heap is not empty");
@@ -78,14 +87,14 @@ public class TestPQH {
         }
         return false;
     }
-    public static void addString(PQ_heap myHeap)
+    public static void addString(PQ_heap myHeap) //only takes string values
     {
         Scanner myScanner = new Scanner(System.in);
         System.out.print("Input (String): ");
         String input = myScanner.next();
         myHeap.enqueue(input);
     }
-    public static void addInteger(PQ_heap myHeap)
+    public static void addInteger(PQ_heap myHeap) //takes int values
     {
         Scanner myScanner = new Scanner(System.in);
         System.out.print("Input (Integer): ");
