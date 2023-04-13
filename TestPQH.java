@@ -1,17 +1,16 @@
-import java.util.Scanner;
 public class TestPQH {
 
     public static void main(String []args)
     {
         boolean isFinished = false;
         int heaptype = -1;//tracks heap type: -1 = not chosen, 0 = string, 1 = integer
-       Heap myHeap = new Heap();
+        PQ_heap myHeap = new PQ_heap<>();
         while (heaptype < 0)
             heaptype = HeapTypeSelection();
         while (!isFinished)
         {
             DisplayMenu();
-            isFinished = MenuSelection(1, myHeap);
+            isFinished = MenuSelection(heaptype,myHeap);
         }
     }
     public static void DisplayMenu()
@@ -46,7 +45,7 @@ public class TestPQH {
         }
         return -1;
     }
-    public static boolean MenuSelection(int heaptype,Heap myHeap)
+    public static boolean MenuSelection(int heaptype,PQ_heap<?> myHeap)
     {
         Scanner myScanner = new Scanner(System.in);
         String selection = myScanner.next();
@@ -55,38 +54,41 @@ public class TestPQH {
             case "0":   System.out.println("HeapType is already specified");
                 break;
             case "1": if(heaptype == 1) addInteger(myHeap);
-                      else addString(myHeap);
+            else addString(myHeap);
                 break;
             case "2":
+                System.out.println("Removed: " + myHeap.dequeue());
                 break;
             case "3":
+                myHeap.is_full();
                 break;
-            case "4": if (myHeap.getSize() == 0) System.out.println("Heap is empty");
+            case "4": if (myHeap.is_empty()) System.out.println("Heap is Empty");
+            else System.out.println("Heap is not empty");
                 break;
-            case "5": System.out.println("Heap size is " + myHeap.getSize());
+            case "5": System.out.println("Heap size is " + myHeap.HeapSize());
                 break;
-            case "6": System.out.println("Front Element: " + myHeap.Peek());
+            case "6": System.out.println("Front Element: " + myHeap.front());
                 break;
             case "7":
+                myHeap.PrintPQ();
                 break;
             case "8":  return true;
             default: System.out.println("Invalid selection");
         }
         return false;
     }
-    public static void addString(Heap myHeap)
+    public static void addString(PQ_heap myHeap)
     {
         Scanner myScanner = new Scanner(System.in);
         System.out.print("Input (String): ");
         String input = myScanner.next();
-        myHeap.add(input);
+        myHeap.enqueue(input);
     }
-    public static void addInteger(Heap myHeap)
+    public static void addInteger(PQ_heap myHeap)
     {
         Scanner myScanner = new Scanner(System.in);
         System.out.print("Input (Integer): ");
         int input = myScanner.nextInt();
-        myHeap.add(input);
+        myHeap.enqueue(input);
     }
 }
-
